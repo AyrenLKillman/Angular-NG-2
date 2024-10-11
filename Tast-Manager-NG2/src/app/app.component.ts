@@ -38,7 +38,7 @@ export class AppComponent {
         
 
 
-        //? create delete btton
+        //? create delete Button
         const deleteButton = document.createElement('button');
         deleteButton.className = 'task-button delete-button';
         deleteButton.textContent = 'Delete';
@@ -48,9 +48,29 @@ export class AppComponent {
           this.removeTaskFromLocalStorage(taskText);
         });
 
+        //? create Done Button
+        //! stuff marked done will not be carried in localStorage
+
+        const doneButton = document.createElement('button');
+        doneButton.className = 'task-button done-button';
+        doneButton.textContent = 'Done';
+        let ifDone = false;
+        doneButton.addEventListener('click', () => {
+   
+
+          if (ifDone === false) {
+            newTaskDiv.style.backgroundColor = 'yellow';
+            ifDone = true
+          } else if (ifDone === true) {
+            newTaskDiv.style.backgroundColor = 'white';
+            ifDone = false
+          }
+        });
+
    
         //? put button on div
         newTaskDiv.appendChild(deleteButton);
+        newTaskDiv.appendChild(doneButton);
         
         //? put div on the objective div
         objectiveDiv.appendChild(newTaskDiv);
@@ -81,9 +101,29 @@ export class AppComponent {
           newTaskDiv.remove();
           this.removeTaskFromLocalStorage(task);
         });
+
+                //? create Done Button
+        //! stuff marked done will not be carried in localStorage
+
+        const doneButton = document.createElement('button');
+        doneButton.className = 'task-button done-button';
+        doneButton.textContent = 'Done';
+        let ifDoneR = false;
+        doneButton.addEventListener('click', () => {
+          
+
+          if (ifDoneR === false) {
+            newTaskDiv.style.backgroundColor = 'yellow';
+            ifDoneR = true
+          } else if (ifDoneR === true) {
+            newTaskDiv.style.backgroundColor = 'white';
+            ifDoneR = false
+          }
+        });
   
         //? put button on div
         newTaskDiv.appendChild(deleteButton);
+        newTaskDiv.appendChild(doneButton);
   
         //? put div on the objective div
         const objectiveDiv = document.querySelector('.Objective');

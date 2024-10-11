@@ -1,10 +1,5 @@
 .Centered{
     text-align: center;
 }
-.starred {
-    background-color: yellow !important;
-    text-decoration: line-through !important;
-  }
-  div.task-item {
-    background-color: yellow;
-  }
+.red{
+    color: red;}
